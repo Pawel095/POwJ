@@ -12,7 +12,7 @@ public class Main {
 		k.addProduct(produkty[0]);
 		k.addProduct(produkty[1]);
 		k.addProduct(produkty[2]);
-		System.out.println("NAJTAŃSZY: "+k.getNajtanszy().getCena());
-		System.out.println("NAJDROŻSZY:  "+k.getNajdrozszy().getCena());
+		System.out.println("2 NAJDROŻSZE: "+k.getN_Najdrozszych(2).get(0).getCena()+" "+ k.getN_Najdrozszych(2).get(1).getCena());
+		System.out.println("2 NAJTAŃSZE: "+k.getN_Najtanszych(2).get(0).getCena()+" "+ k.getN_Najtanszych(2).get(1).getCena());
 	}
 }
