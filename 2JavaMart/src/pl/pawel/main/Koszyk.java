@@ -1,6 +1,11 @@
 package pl.pawel.main;
 
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Koszyk {
 	private ArrayList<Product> produkty = new ArrayList<Product>();
@@ -31,7 +36,11 @@ public class Koszyk {
 		}
 		return ret;
 	}
-
+	
+	public Product getProduct(int index) {
+		return produkty.get(index);
+	}
+	
 	public ArrayList<Product> getN_Najtanszych(int n) {
 		ArrayList<Product> ret = new ArrayList<Product>();
 		ret.add(getNajtanszy());
@@ -68,5 +77,30 @@ public class Koszyk {
 
 		return ret;
 	}
-
+	public void sortPoNazwie() {
+		Collections.sort(produkty, new Comparator<Product>() {
+			@Override
+			public int compare(Product o1, Product o2) {
+				return o1.getName().compareTo(o2.getName());
+			}
+		});
+	}
+	public void sortPoCenie() {
+		Collections.sort(produkty,new Comparator<Product>() {@Override
+		public int compare(Product o1, Product o2) {
+			if (o1.getCena()<o2.getCena()) {
+				return -1;
+			}else if (o1.getCena() == o2.getCena()) {
+				return 0;
+			}
+			return 1;
+		}
+		});
+	}
+	
+	public void wypisz() {
+		for (int i = 0; i < produkty.size(); i++) {
+			System.out.println("KOD: "+produkty.get(i).getCode()+" NAZWA: "+produkty.get(i).getName()+" CENA: "+produkty.get(i).getCena());
+		}
+	}
 }

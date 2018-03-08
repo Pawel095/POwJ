@@ -1,6 +1,6 @@
 package pl.pawel.main;
 
-public class Product {
+public class Product{
 
 	private String code;
 	private String name;
@@ -45,4 +45,5 @@ public class Product {
 	public double getDiscountPrice() {
 		return discountPrice;
 	}
+
 }
