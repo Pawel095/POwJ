@@ -17,5 +17,7 @@ public class Main {
 		k.wypisz();
 		k.sortPoCenie();
 		k.wypisz();
+		System.out.println(k.policzCene(null));
+		
 	}
 }
