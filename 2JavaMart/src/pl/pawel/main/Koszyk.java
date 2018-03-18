@@ -112,6 +112,17 @@ public class Koszyk {
 		return ret;
 			
 	}
+	public void promocje() {
+		if (policzCene(produkty)>300) {
+			System.out.println("Mam 5% zniżki!");
+		}
+		if (produkty.size()==2) {
+			System.out.println(getNajtanszy().getName()+" Dostajesz za Darmo!");
+		}
+		if (policzCene(produkty)>200) {
+			System.out.println("Firmowy kubek gratis!");
+		}
+	}
 
 	public void wypisz() {
 		for (int i = 0; i < produkty.size(); i++) {
