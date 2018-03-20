@@ -5,14 +5,19 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Aplikant {
-	private String firstName;
-	private String surname;
-	private String pesel;
-	private String nip;
-	private String bankAccountNumber;
-	private Date dateOfBirth;
-	private String gender;
-
+	private String firstName="";
+	private String surname="";
+	private String pesel="";
+	private String nip="";
+	private String bankAccountNumber="";
+	private Date dateOfBirth=new Date();
+	private String gender="";
+	
+	@Override
+	public String toString() {
+		return firstName+" "+surname+" "+pesel+" "+nip+" "+bankAccountNumber+" "+dateOfBirth.toString()+" "+gender;
+	}
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -65,7 +70,18 @@ public class Aplikant {
 	}
 
 	public void setNip(String nip) {
+		Pattern p=Pattern.compile("^[0-9]{10}$"); 
+		Matcher m=p.matcher(nip);
+		int kontrolna=0;
+		int[] wielomian= {6,5,7,2,3,4,5,6,7};
 		
+		for (int i = 0; i < wielomian.length; i++) {
+			kontrolna+=wielomian[i]*Character.getNumericValue(pesel.toCharArray()[i]);
+		}
+		
+		if (!m.matches() || kontrolna%10!=Character.getNumericValue(nip.toCharArray()[nip.length()-1])) {
+			return;
+		}
 		this.nip = nip;
 	}
 
@@ -74,6 +90,11 @@ public class Aplikant {
 	}
 
 	public void setBankAccountNumber(String bankAccountNumber) {
+		Pattern p=Pattern.compile("^[0-9]{26}$");
+		Matcher m=p.matcher(bankAccountNumber);
+		if (!m.matches()) {
+			return;
+		}
 		this.bankAccountNumber = bankAccountNumber;
 	}
 
@@ -82,6 +103,7 @@ public class Aplikant {
 	}
 
 	public void setDateOfBirth(Date dateOfBirth) {
+		
 		this.dateOfBirth = dateOfBirth;
 	}
 
