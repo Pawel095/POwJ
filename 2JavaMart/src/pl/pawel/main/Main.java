@@ -18,6 +18,7 @@ public class Main {
 		k.sortPoCenie();
 		k.wypisz();
 		System.out.println(k.policzCene(null));
+		k.promocje();
 		
 	}
 }
