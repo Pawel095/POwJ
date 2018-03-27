@@ -1,10 +1,6 @@
 package pl.pawel.lab;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,6 +18,7 @@ public class Aplikant {
 		}
 	}
 
+	// rok miesia dzień (1=facet, 2=kobieta)
 	private ArrayList<Integer> peselData = new ArrayList<Integer>();
 
 	private String firstName = "";
@@ -84,7 +81,7 @@ public class Aplikant {
 		}
 
 		this.pesel = pesel;
-
+		// miesiac i rok z pesela.
 		if (Integer.parseInt(pesel.substring(2, 4)) < 20) {
 			peselData.add(Integer.parseInt("19" + pesel.substring(0, 2)));
 			peselData.add(Integer.parseInt(pesel.substring(2, 4)));
@@ -101,7 +98,8 @@ public class Aplikant {
 			peselData.add(Integer.parseInt("18" + pesel.substring(0, 2)));
 			peselData.add(Integer.parseInt(pesel.substring(2, 4)) - 60);
 		}
-
+		// dzien z pesela
+		peselData.add(Integer.parseInt(pesel.substring(4, 6)));
 	}
 
 	public String getNip() {
@@ -141,20 +139,17 @@ public class Aplikant {
 		return dateOfBirth;
 	}
 
+	@SuppressWarnings("deprecation")
 	public void setDateOfBirth(Date dateOfBirth) {
-		LocalDate c=dateOfBirth.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-		int y = c.getYear();
-		int m = c.getMonthValue();
-		int d = c.getDayOfMonth();
-		System.out.println(y);
-		System.out.println(m);
-		System.out.println(d);
+		int m = dateOfBirth.getMonth() + 1;
+		int y = dateOfBirth.getYear() + 1900;
+		int d = dateOfBirth.getDate();
 		if (peselData.get(0) == y && peselData.get(1) == m && peselData.get(2) == d) {
 			this.dateOfBirth = dateOfBirth;
-		}else {
+		} else {
 			return;
 		}
-		
+
 	}
 
 	public Gender getGender() {

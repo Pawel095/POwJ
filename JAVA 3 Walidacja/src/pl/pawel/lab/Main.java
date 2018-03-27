@@ -12,7 +12,7 @@ public class Main {
 		a.setSurname("Pankiewicz");
 		a.setPesel("97102603235");
 		a.setNip("1234563218");
-		SimpleDateFormat sdf=new SimpleDateFormat("YYYY/MM/DD");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy/M/dd");
 		try {
 			a.setDateOfBirth(sdf.parse("1997/10/26"));
 		} catch (ParseException e) {
