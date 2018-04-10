@@ -12,7 +12,7 @@ public class Konto {
 		return saldo;
 	}
 	public boolean przelewam(Konto docelowe,int ile) {
-		if (saldo-ile<0) {
+		if (saldo-ile>0) {
 			saldo-=ile;
 			docelowe.odbieramPrzelew(ile);
 			return true;
@@ -25,7 +25,7 @@ public class Konto {
 	}
 	
 	public boolean wyplacam(int ile) {
-		if (saldo-ile<0) {
+		if (saldo-ile>0) {
 			saldo-=ile;
 			return true;
 		}

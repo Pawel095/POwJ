@@ -8,8 +8,9 @@ public class Operacja {
 	}
 
 	public TYP typOperacji;
-	public String przelewZKontaNr;
+	public String przelewWplataWyplata_ZKontaNr;
 	public String przelewNaKontoNr;
+	public String WplataiWyplataNaKontoNr;
 	public int kwotaOperacji;
 	public Date dataOperacji;
 
@@ -17,8 +18,8 @@ public class Operacja {
 		return typOperacji;
 	}
 
-	public String getPrzelewZKontaNr() {
-		return przelewZKontaNr;
+	public String getPrzelewWplataWyplata_ZKontaNr() {
+		return przelewWplataWyplata_ZKontaNr;
 	}
 
 	public String getPrzelewNaKontoNr() {
@@ -34,17 +35,18 @@ public class Operacja {
 	}
 
 	public Operacja(TYP typ, int kwotaOperacji, String przelewZKontaNr, String przelewNaKontoNr) {
-		this.typOperacji=typ;
-		this.kwotaOperacji=kwotaOperacji;
-		this.przelewZKontaNr=przelewZKontaNr;
-		this.przelewNaKontoNr=przelewNaKontoNr;
-		dataOperacji=new Date();
+		this.typOperacji = typ;
+		this.kwotaOperacji = kwotaOperacji;
+		this.przelewWplataWyplata_ZKontaNr = przelewZKontaNr;
+		this.przelewNaKontoNr = przelewNaKontoNr;
+		dataOperacji = new Date();
 	}
-	public Operacja(TYP typ,int kwotaOperacji) {
-		this.typOperacji=typ;
-		this.kwotaOperacji=kwotaOperacji;
-		this.przelewZKontaNr=null;
-		this.przelewNaKontoNr=null;
-		dataOperacji=new Date();
+
+	public Operacja(TYP typ, int kwotaOperacji, String konto) {
+		this.typOperacji = typ;
+		this.kwotaOperacji = kwotaOperacji;
+		this.przelewWplataWyplata_ZKontaNr = null;
+		this.przelewNaKontoNr = null;
+		dataOperacji = new Date();
 	}
 }
