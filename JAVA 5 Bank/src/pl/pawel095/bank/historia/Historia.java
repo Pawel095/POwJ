@@ -15,11 +15,13 @@ public class Historia {
 	}
 
 	public void Wplata(Konto konto, int ile) {
-		
+		konto.wplacam(ile);
+		historiaOperacji.add(new Operacja(TYP.WYPLATA,ile));
 	}
 	public void Wyplata(Konto konto, int ile) {
-		
-
+		if (konto.wyplacam(ile)) {
+			historiaOperacji.add(new Operacja(TYP.WYPLATA,ile));
+		}
 	}
 	
 }

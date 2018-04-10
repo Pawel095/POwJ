@@ -40,4 +40,11 @@ public class Operacja {
 		this.przelewNaKontoNr=przelewNaKontoNr;
 		dataOperacji=new Date();
 	}
+	public Operacja(TYP typ,int kwotaOperacji) {
+		this.typOperacji=typ;
+		this.kwotaOperacji=kwotaOperacji;
+		this.przelewZKontaNr=null;
+		this.przelewNaKontoNr=null;
+		dataOperacji=new Date();
+	}
 }
