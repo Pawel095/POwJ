@@ -11,6 +11,7 @@ public class Main {
 		historiaKont.Wplata(a, 500);
 		historiaKont.Wyplata(a, 100);
 		historiaKont.Przelew(a, b, 200);
+		historiaKont.Przelew(b, a, 100);
 		System.out.println(historiaKont.historiaKonta(a).toString());
 	}
 

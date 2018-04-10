@@ -45,7 +45,7 @@ public class Operacja {
 	public Operacja(TYP typ, int kwotaOperacji, String konto) {
 		this.typOperacji = typ;
 		this.kwotaOperacji = kwotaOperacji;
-		this.przelewWplataWyplata_ZKontaNr = null;
+		this.przelewWplataWyplata_ZKontaNr = konto;
 		this.przelewNaKontoNr = null;
 		dataOperacji = new Date();
 	}
