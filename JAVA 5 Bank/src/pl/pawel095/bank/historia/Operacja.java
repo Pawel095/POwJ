@@ -10,7 +10,6 @@ public class Operacja {
 	public TYP typOperacji;
 	public String przelewWplataWyplata_ZKontaNr;
 	public String przelewNaKontoNr;
-	public String WplataiWyplataNaKontoNr;
 	public int kwotaOperacji;
 	public Date dataOperacji;
 
