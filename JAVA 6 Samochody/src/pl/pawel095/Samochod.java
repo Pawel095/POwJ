@@ -2,7 +2,7 @@ package pl.pawel095;
 
 import java.util.Date;
 
-public class Samochod {
+public class Samochod{
 	private double cena;
 	private String tytul;
 	private Date dataOgloszenia;
@@ -20,9 +20,8 @@ public class Samochod {
 
 	@Override
 	public String toString() {
-		String ret = "Cena " + Double.toString(cena) + " tytul " + tytul + " Data Ogloszenia " + dataOgloszenia.toString()
-				+ " rocznik " + Integer.toString(rocznik) + " przebieg " + Long.toString(przebieg);
-		return ret;
+		return "Samochod [cena=" + cena + ", tytul=" + tytul + ", dataOgloszenia=" + dataOgloszenia + ", rocznik="
+				+ rocznik + ", przebieg=" + przebieg + "]";
 	}
 
 	public double getCena() {
