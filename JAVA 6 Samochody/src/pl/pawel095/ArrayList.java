@@ -1,5 +1,7 @@
 package pl.pawel095;
 
+import pl.pawel095.Samochod;
+
 public class ArrayList extends java.util.ArrayList<Samochod>{
 	private static final long serialVersionUID = 7850283283913587261L;
 	

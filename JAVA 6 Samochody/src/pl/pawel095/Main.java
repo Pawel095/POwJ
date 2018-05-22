@@ -5,7 +5,6 @@ import java.util.Date;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		OfertyFilter of=new OfertyFilter();
 		of.addOferta(new Samochod(123.0, "sprzedam opla", new Date(), 1991, 123));
 		of.addOferta(new Samochod(19999.9, "Nowy Bentley na sprzedaz", new Date(), 2018, 0));
