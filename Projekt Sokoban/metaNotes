@@ -1,0 +1,8 @@
+Singleton jako appPrefs								[X]
+Factory do twożenia klocków mapy					[ ]
+BUILDER jako klasa LEVEL							[ ]
+ITERATOR do listy tilesów stwożonej w fabryce		[ ]
+
+
+
+builder twoży level z Tiles stwożonych przez factory i wczytanych z pliku przez iterator
