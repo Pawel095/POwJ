@@ -6,7 +6,7 @@ public class EndScreen extends basicScreen {
 
 	public EndScreen(Main parent) {
 		super(parent);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override

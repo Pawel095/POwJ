@@ -6,10 +6,10 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
+import pl.pawel095.sokoban.KeyboardConroller;
 import pl.pawel095.sokoban.Level;
 import pl.pawel095.sokoban.LevelBuilder;
 import pl.pawel095.sokoban.Main;
-import pl.pawel095.sokoban.controller.KeyboardConroller;
 import pl.pawel095.sokoban.loader.AssetLoader;
 
 public class GameScreen extends basicScreen {
@@ -29,7 +29,7 @@ public class GameScreen extends basicScreen {
 		batch.setProjectionMatrix(cam.combined);
 		
 		LevelBuilder lb=new LevelBuilder();
-		l=lb.buildLevel(Main.getAssetLoader().manager.get(AssetLoader.level1),camSize);
+		l=lb.buildLevel(Main.getAssetLoader().manager.get(AssetLoader.level1),camSize,controller);
 		
 	}
 
@@ -41,11 +41,17 @@ public class GameScreen extends basicScreen {
 
 	@Override
 	public void render(float delta) {
+		l.logicStep();
 		Gdx.gl.glClearColor(0f, 0f, 0f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		l.draw(batch,camSize);
 		batch.end();
+		
+		//jeżeli poziom rozwiązany to gotoEndScreen
+		if (l.levelFinished) {
+			parent.changeScreen(Main.ENDGAME);
+		}
 	}
 
 	@Override

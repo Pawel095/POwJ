@@ -13,6 +13,8 @@ public class MapFile {
 	private TileReader tileReader;
 	private ArrayList<String> tileList = new ArrayList<String>();
 	private Vector2 mapSize;
+	private int numberOfTargets;
+
 
 	public MapFile(FileHandle file) {
 		try {
@@ -64,9 +66,13 @@ public class MapFile {
 			}
 		}
 		if (numberOfBarrels >= numberOfTargets && numberOfSpawns == 1 && !unknownSymbols) {
+			this.numberOfTargets=numberOfTargets;
 			return true;
 		} else {
 			throw new BadMapFileException();
 		}
+	}
+	public int getNumberOfTargets() {
+		return numberOfTargets;
 	}
 }
