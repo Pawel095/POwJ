@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import pl.pawel095.sokoban.Main;
+import pl.pawel095.sokoban.loader.AssetLoader;
 
 public class MenuScreen extends basicScreen {
 	private Stage stage;
@@ -18,36 +19,27 @@ public class MenuScreen extends basicScreen {
 	public MenuScreen(final Main parent) {
 		super(parent);
 		stage = new Stage(new ScreenViewport());
-		
 
 	}
 
 	@Override
 	public void show() {
-		
+
 		Gdx.input.setInputProcessor(stage);
 		Table table = new Table();
 		table.setFillParent(true);
-		//table.setDebug(true);
+		// table.setDebug(true);
 		stage.addActor(table);
-		
-		//temporary
-		Skin skin = new Skin(Gdx.files.internal("skins-libgdx/gdx-holo/skin/uiskin.json"));
+
+		// temporary
+		Skin skin = Main.getAssetLoader().manager.get(AssetLoader.skin);
 
 		TextButton newGame = new TextButton("New Game", skin);
 		newGame.addListener(new ChangeListener() {
-			
+
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				parent.changeScreen(Main.APPLICATION);
-			}
-		});
-		TextButton preferences = new TextButton("Preferences", skin);
-		preferences.addListener(new ChangeListener() {
-			
-			@Override
-			public void changed(ChangeEvent event, Actor actor) {
-				parent.changeScreen(Main.PREFERENCES);;
 			}
 		});
 		TextButton exit = new TextButton("Exit", skin);
@@ -57,11 +49,9 @@ public class MenuScreen extends basicScreen {
 				Gdx.app.exit();
 			}
 		});
-		
 
 		table.add(newGame).fillX().uniformX();
 		table.row().pad(10, 0, 10, 0);
-		table.add(preferences).fillX().uniformX();
 		table.row();
 		table.add(exit).fillX().uniformX();
 
@@ -69,11 +59,10 @@ public class MenuScreen extends basicScreen {
 
 	@Override
 	public void render(float delta) {
-		//czyszczenie ekranu
+		// czyszczenie ekranu
 		Gdx.gl.glClearColor(153f, 153f, 153f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
-		
+
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 		stage.draw();
 
@@ -101,14 +90,11 @@ public class MenuScreen extends basicScreen {
 	public void hide() {
 		// TODO Auto-generated method stub
 		stage.clear();
-		System.out.println("MenuScreen: hide");
-
 	}
 
 	@Override
 	public void dispose() {
 		stage.dispose();
-		System.out.println("MenuScreen: Dispose");
 	}
 
 }
