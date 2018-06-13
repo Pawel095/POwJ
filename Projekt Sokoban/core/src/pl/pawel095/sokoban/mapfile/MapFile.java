@@ -35,7 +35,7 @@ public class MapFile {
 	public ArrayList<String> getStringTileList() {
 		return tileList;
 	}
-	public Vector2 getmapSize() {
+	public Vector2 getMapSize() {
 		return mapSize;
 	}
 	

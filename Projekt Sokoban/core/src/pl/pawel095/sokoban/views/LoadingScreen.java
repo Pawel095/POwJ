@@ -17,7 +17,7 @@ public class LoadingScreen extends basicScreen {
 	@Override
 	public void render(float delta) {
 		Main.getAssetLoader().manager.finishLoading();
-		parent.changeScreen(Main.MENU);
+		parent.changeScreen(Main.APPLICATION);
 	}
 
 	@Override

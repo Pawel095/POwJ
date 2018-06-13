@@ -15,13 +15,15 @@ public class MapTileFactory {
 		}
 	}
 	public MapTile getMapTile(String s) {
-		switch (s) {
-		case "g":
-		case "p":
+		char type=s.charAt(0);
+		switch (type) {
+		case 'g':
+		case 's':
+		case 'p':
 			return new FloorTile();
-		case "c":
+		case 'c':
 			return new TargetTile();
-		case "w":
+		case 'w':
 			return new WallTile();
 		default:
 			return null;

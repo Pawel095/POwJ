@@ -31,7 +31,6 @@ public class MenuScreen extends basicScreen {
 		// table.setDebug(true);
 		stage.addActor(table);
 
-		// temporary
 		Skin skin = Main.getAssetLoader().manager.get(AssetLoader.skin);
 
 		TextButton newGame = new TextButton("New Game", skin);
