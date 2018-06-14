@@ -40,9 +40,6 @@ class TileReader implements Container {
 
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
-
-			if (ret == "") {
 				return "-1";
 			}
 			return ret;
